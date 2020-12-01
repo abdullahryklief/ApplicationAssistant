@@ -8,8 +8,7 @@ import java.util.Set;
 public interface CourseService extends IService<Course, String> {
     Set<Course> getAll();
 
-    //unique business logic as per Course
 
-    Set<Course> getAllStartingWith(String letter);
+    Set<Course> searchByName(String name);
 
 }

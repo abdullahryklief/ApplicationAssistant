@@ -7,7 +7,6 @@ import java.util.Objects;
 
 
 @Entity
-//@IdClass(CourseSubject.class)
 public class Course {
 
     @Id

@@ -23,8 +23,8 @@ public class CourseController {
         return courseService.create(newCourse);
     }
 
-    @GetMapping("/allwith/{letter}")
-    public Set<Course> getAllStartingWith(@PathVariable String letter) { return courseService.getAllStartingWith(letter); }
+    @GetMapping("/searchby/{name}")
+    public Set<Course> searchByName(@PathVariable String name) { return courseService.searchByName(name); }
 
     @GetMapping("/read/{courseId}")
     public Course read(@PathVariable String courseId) { return courseService.read(courseId); }

@@ -26,10 +26,10 @@ public class SubjectServiceImplTest {
     }
 
     @Test
-    public void e_getAllStartingWith(){
-        Set<Subject> subjects = service.getAllStartingWith("m");
+    public void e_searchByName(){
+        Set<Subject> subjects = service.searchByName("App Dev");
         Assert.assertEquals(1, subjects.size());
-        System.out.println("Gets everything starting with an 'M': " + subjects);
+        System.out.println("Gets everything sorted by name: " + subjects);
     }
 
     @Test

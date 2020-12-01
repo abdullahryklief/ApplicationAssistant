@@ -23,16 +23,16 @@ public class InstitutionServiceImpl implements InstitutionService {
     }
 
     @Override
-    public Set<Institution> getAllStartingWith(String letter) {
-        Set<Institution> institutionSet = getAll();
-        Set<Institution> institutionsStartingWith = new HashSet<>();
-        for(Institution institution : institutionSet){
-            if(institution.getInstitutionName().trim().toLowerCase().startsWith(letter))
+    public Set<Institution> searchByName(String name) {
+        Set<Institution> institutions = getAll();
+        Set<Institution> institutionsByName = new HashSet<>();
+        for(Institution institution : institutions){
+            if(institution.getInstitutionName().trim().toLowerCase().contains(name))
             {
-                institutionsStartingWith.add(institution);
+                institutionsByName.add(institution);
             }
         }
-        return institutionsStartingWith;
+        return institutionsByName;
     }
 
     @Override

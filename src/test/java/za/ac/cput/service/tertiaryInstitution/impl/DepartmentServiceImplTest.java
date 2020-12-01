@@ -11,8 +11,6 @@ import za.ac.cput.service.tertiaryInstitution.DepartmentService;
 
 import java.util.Set;
 
-import static org.junit.Assert.*;
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DepartmentServiceImplTest {
 
@@ -30,10 +28,10 @@ public class DepartmentServiceImplTest {
     }
 
     @Test
-    public void e_getAllStartingWith() {
-        Set<Department> departments = service.getAllStartingWith("i");
+    public void e_searchByName() {
+        Set<Department> departments = service.searchByName("Information Technology");
         Assert.assertEquals(1, departments.size());
-        System.out.println("Get All Starting With 'A': " + departments);
+        System.out.println("All departments by name: " + departments);
     }
 
     @Test

@@ -22,11 +22,11 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public Set<Department> getAllStartingWith(String letter) {
+    public Set<Department> searchByName(String name) {
         Set<Department> departmentSet = getAll();
         Set<Department> departmentsStartingWith = new HashSet<>();
         for(Department department : departmentSet){
-            if(department.getDepartmentName().trim().toLowerCase().startsWith(letter))
+            if(department.getDepartmentName().trim().toLowerCase().contains(name))
             {
                 departmentsStartingWith.add(department);
             }

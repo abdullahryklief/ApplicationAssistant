@@ -1,27 +1,60 @@
-//package za.ac.cput.entity.tertiaryInstitution;
-//
-//import java.io.Serializable;
-//import java.util.Objects;
-//
-//public class DepartmentCourse implements Serializable {
-//
-//    private String departmentId, departmentName, departmentCode;
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        DepartmentCourse that = (DepartmentCourse) o;
-//        return departmentId.equals(that.departmentId) &&
-//                departmentName.equals(that.departmentName) &&
-//                departmentCode.equals(that.departmentCode);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(departmentId, departmentName, departmentCode);
-//    }
-//}
+package za.ac.cput.entity.tertiaryInstitution;
 
-/** I KNOW THIS IS WRONG, I WAS CONFUSED ABOUT IT BUT YOU CAN CRIT ALL THE WAY.
- **/
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import java.util.Objects;
+@Entity
+@IdClass(DepartmentCourseId.class)
+public class DepartmentCourse {
+
+    @Id
+    private String departmentId, courseId;
+
+    protected DepartmentCourse() {}
+
+    private DepartmentCourse(Builder builder) {
+        this.departmentId = builder.departmentId;
+        this.courseId = builder.courseId;
+    }
+
+    public String getDepartmentId() {
+        return departmentId;
+    }
+
+    public String getCourseId() {
+        return courseId;
+    }
+
+    @Override
+    public String toString() {
+        return "DepartmentCourse{" +
+                "departmentId='" + departmentId + '\'' +
+                ", courseId='" + courseId + '\'' +
+                '}';
+    }
+
+    public static class Builder {
+        private String departmentId, courseId;
+
+        public Builder departmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+        public Builder courseId(String courseId) {
+            this.courseId = courseId;
+            return this;
+        }
+
+        public Builder copy(DepartmentCourse departmentCourse) {
+            this.departmentId = departmentCourse.departmentId;
+            this.courseId = departmentCourse.courseId;
+            return this;
+        }
+
+        public DepartmentCourse build(){
+            return new DepartmentCourse(this);
+        }
+    }
+}

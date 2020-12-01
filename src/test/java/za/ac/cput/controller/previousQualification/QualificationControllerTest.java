@@ -1,6 +1,5 @@
 package za.ac.cput.controller.previousQualification;
 
-import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,12 +10,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import za.ac.cput.entity.previousQualification.Qualification;
-import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.factory.previousQualification.QualificationFactory;
-import za.ac.cput.factory.previousQualification.SubjectFactory;
 
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.Assert.*;
 

@@ -1,28 +1,61 @@
-//package za.ac.cput.entity.tertiaryInstitution;
-//
-//import java.io.Serializable;
-//import java.util.Objects;
-//
-//public class CourseSubject implements Serializable {
-//
-//    private String courseId, courseCode, courseFees, courseName;
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        CourseSubject that = (CourseSubject) o;
-//        return courseId.equals(that.courseId) &&
-//                courseCode.equals(that.courseCode) &&
-//                courseFees.equals(that.courseFees) &&
-//                courseName.equals(that.courseName);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(courseId, courseCode, courseFees, courseName);
-//    }
-//}
+package za.ac.cput.entity.tertiaryInstitution;
 
-/** I KNOW THIS IS WRONG, I WAS CONFUSED ABOUT IT BUT YOU CAN CRIT ALL THE WAY.
- **/
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+
+@Entity
+@IdClass(CourseSubjectId.class)
+public class CourseSubject {
+
+    @Id
+    private String courseId, subjectId;
+
+    protected CourseSubject(){}
+
+    private CourseSubject(Builder builder){
+        this.courseId = builder.courseId;
+        this.subjectId = builder.subjectId;
+    }
+
+    public String getCourseId(){
+        return courseId;
+    }
+
+    public String getSubjectId(){
+        return subjectId;
+    }
+
+    @Override
+    public String toString() {
+        return "CourseSubject{" +
+                "courseId='" + courseId + '\'' +
+                ", subjectId='" + subjectId + '\'' +
+                '}';
+    }
+
+    public static class Builder {
+        private String courseId, subjectId;
+
+        public Builder courseId(String courseId){
+            this.courseId = courseId;
+            return this;
+
+        }
+
+        public Builder subjectId(String subjectId){
+            this.subjectId = subjectId;
+            return this;
+        }
+
+        public Builder copy(CourseSubject courseSubject){
+            this.courseId = courseSubject.courseId;
+            this.subjectId = courseSubject.subjectId;
+            return this;
+        }
+
+        public CourseSubject Build(){
+            return new CourseSubject( this);
+        }
+    }
+}

@@ -55,6 +55,7 @@ public class InstitutionControllerTest {
         ResponseEntity<String> response = restTemplate
                 .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .exchange(url, HttpMethod.GET, entity, String.class);
+
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -81,6 +82,7 @@ public class InstitutionControllerTest {
         ResponseEntity<Institution> response = restTemplate
                 .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .postForEntity(url, updated, Institution.class);
+
         assertEquals(institution.getInstitutionId(), response.getBody().getInstitutionId());
     }
 
@@ -93,6 +95,7 @@ public class InstitutionControllerTest {
         ResponseEntity<String> response = restTemplate
                 .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .exchange(url, HttpMethod.GET, entity, String.class);
+
         System.out.println(response);
         System.out.println(response.getBody());
     }

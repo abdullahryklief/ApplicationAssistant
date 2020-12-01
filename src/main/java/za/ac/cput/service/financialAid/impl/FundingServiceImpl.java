@@ -12,27 +12,24 @@ import java.util.stream.Collectors;
 @Service
 public class FundingServiceImpl implements FundingService {
 
-
     @Autowired
     private FundingRepository repository;
 
     @Override
     public Set<Funding> getAll() {
-
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-
     @Override
-    public Set<Funding> getAllStartingWith(String letter) {
+    public Set<Funding> searchByName(String name) {
+        Business-Rules-and-Bridging-Entities
         Set<Funding> fundings = getAll();
         Set<Funding> fundingsWith = new HashSet<>();
         for (Funding funding : fundings) {
-            if (funding.getFundingName().trim().toLowerCase().startsWith(letter)) ;
+            if (funding.getFundingName().trim().toLowerCase().contains(name))
             {
                 fundingsWith.add(funding);
             }
-
         }
         return fundingsWith;
     }

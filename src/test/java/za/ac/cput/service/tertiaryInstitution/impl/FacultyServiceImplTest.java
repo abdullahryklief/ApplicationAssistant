@@ -27,10 +27,10 @@ public class FacultyServiceImplTest {
     }
 
     @Test
-    public void e_getAllStartingWith() {
-        Set<Faculty> faculties = service.getAllStartingWith("i");
+    public void e_searchByName() {
+        Set<Faculty> faculties = service.searchByName("ICT123");
         Assert.assertEquals(1, faculties.size());
-        System.out.println("Get All Starting With 'A': " + faculties);
+        System.out.println("All faculties by name: " + faculties);
     }
 
     @Test

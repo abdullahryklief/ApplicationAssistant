@@ -26,14 +26,14 @@ public class CourseServiceImplTest {
     public void d_getAll() {
         Set<Course> courses = service.getAll();
         Assert.assertEquals(1, courses.size());
-        System.out.println("All courses: " + courses);
+        System.out.println("All courses " + courses);
     }
 
     @Test
-    public void e_getAllStartingWith() {
-        Set<Course> courses = service.getAllStartingWith("a");
+    public void e_searchByName() {
+        Set<Course> courses = service.searchByName("ADP");
         Assert.assertEquals(1, courses.size());
-        System.out.println("All courses: " + courses);
+        System.out.println("All courses by name " + courses);
     }
 
     @Test

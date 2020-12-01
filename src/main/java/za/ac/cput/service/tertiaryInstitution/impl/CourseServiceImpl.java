@@ -22,11 +22,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Set<Course> getAllStartingWith(String letter) {
+    public Set<Course> searchByName(String name) {
         Set<Course> courses = getAll();
         Set<Course> coursesWith = new HashSet<>();
         for (Course course : courses) {
-            if (course.getCourseName().trim().toLowerCase().startsWith(letter)) {
+            if (course.getCourseName().trim().toLowerCase().contains(name)) {
                 coursesWith.add(course);
             }
         }

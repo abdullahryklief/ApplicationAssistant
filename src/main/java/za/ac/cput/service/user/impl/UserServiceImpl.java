@@ -23,13 +23,6 @@ public class UserServiceImpl implements UserService {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-//    @Override
-//    public void emailApplicationForm(String email) {
-//        //confirm email
-//        //call send email class
-//        SendHTMLEmail.sendEmail(email);
-//    }
-
     @Override
     public User create(User user)
     {

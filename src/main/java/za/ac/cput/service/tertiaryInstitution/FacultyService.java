@@ -9,5 +9,5 @@ import java.util.Set;
 public interface FacultyService extends IService<Faculty, String> {
     Set<Faculty> getAll();
 
-    Set<Faculty> getAllStartingWith(String letter);
+    Set<Faculty> searchByName(String name);
 }

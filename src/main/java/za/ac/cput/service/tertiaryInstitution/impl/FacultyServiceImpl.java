@@ -21,12 +21,12 @@ public class FacultyServiceImpl implements FacultyService {
     }
 
     @Override
-    public Set<Faculty> getAllStartingWith(String letter) {
+    public Set<Faculty> searchByName(String name) {
         Set<Faculty> facultySet = getAll();
         Set<Faculty> facultiesWith = new HashSet<>();
         for(Faculty faculty : facultySet)
         {
-            if(faculty.getFacultyName().trim().toLowerCase().startsWith(letter)){
+            if(faculty.getFacultyName().trim().toLowerCase().contains(name)){
                 facultiesWith.add(faculty);
             }
         }

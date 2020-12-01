@@ -3,6 +3,7 @@ package za.ac.cput.controller.financialAid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.entity.financialAid.Funding;
+import za.ac.cput.entity.previousQualification.Qualification;
 import za.ac.cput.factory.financialAid.FundingFactory;
 import za.ac.cput.service.financialAid.impl.FundingServiceImpl;
 
@@ -41,5 +42,11 @@ public class FundingController {
     public boolean delete(@PathVariable String id)
     {
         return fundingService.delete(id);
+    }
+
+    @GetMapping("/searchby/{name}")
+    public Set<Funding> searchByName(@PathVariable String name)
+    {
+        return fundingService.searchByName(name);
     }
 }

@@ -2,6 +2,7 @@ package za.ac.cput.controller.tertiaryInstitution;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.entity.tertiaryInstitution.Institution;
 import za.ac.cput.factory.tertiaryInstitution.InstitutionFactory;
 import za.ac.cput.service.tertiaryInstitution.impl.InstitutionServiceImpl;
@@ -23,8 +24,11 @@ public class InstitutionController {
         return institutionService.create(newInstitution);
     }
 
-    @GetMapping("/allwith/{letter}")
-    public Set<Institution> getAllStartingWith(@PathVariable String letter) { return institutionService.getAllStartingWith(letter); }
+    @GetMapping("/searchby/{name}")
+    public Set<Institution> searchByName(@PathVariable String name)
+    {
+        return institutionService.searchByName(name);
+    }
 
     @GetMapping("/read/{institutionId}")
     public Institution read(@PathVariable String institutionId) { return institutionService.read(institutionId); }

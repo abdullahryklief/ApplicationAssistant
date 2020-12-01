@@ -29,9 +29,9 @@ public class DepartmentController {
     }
 
     @GetMapping("/read/{departmentid}")
-    public Department read(@PathVariable String departmentid)
+    public Department read(@PathVariable String departmentId)
     {
-        return departmentService.read(departmentid);
+        return departmentService.read(departmentId);
     }
 
     @PostMapping("/update")
@@ -45,5 +45,8 @@ public class DepartmentController {
     {
         return departmentService.delete(id);
     }
+
+    @GetMapping("/searchby/{name}")
+    public Set<Department> searchByName(@PathVariable String name) { return departmentService.searchByName(name); }
 
 }

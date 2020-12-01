@@ -3,6 +3,7 @@ package za.ac.cput.controller.tertiaryInstitution;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import za.ac.cput.entity.tertiaryInstitution.Course;
 import za.ac.cput.entity.tertiaryInstitution.Faculty;
 import za.ac.cput.factory.tertiaryInstitution.FacultyFactory;
 import za.ac.cput.service.tertiaryInstitution.impl.FacultyServiceImpl;
@@ -46,6 +47,9 @@ public class FacultyController {
     public Set<Faculty> getAll(){
         return facultyService.getAll();
     }
+
+    @GetMapping("/searchby/{name}")
+    public Set<Faculty> searchByName(@PathVariable String name) { return facultyService.searchByName(name); }
 
 
 

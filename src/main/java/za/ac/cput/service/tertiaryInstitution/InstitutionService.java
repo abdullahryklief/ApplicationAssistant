@@ -9,5 +9,5 @@ public interface InstitutionService extends IService<Institution, String> {
 
     Set<Institution> getAll();
 
-    Set<Institution> getAllStartingWith(String letter);
+    Set<Institution> searchByName(String name);
 }

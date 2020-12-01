@@ -32,10 +32,10 @@ public class InstitutionServiceImplTest {
     }
 
     @Test
-    public void e_getAllStartingWith() {
-        Set<Institution> institutions = service.getAllStartingWith("c");
+    public void e_searchByName() {
+        Set<Institution> institutions = service.searchByName("CPUT");
         Assert.assertEquals(1, institutions.size());
-        System.out.println("Get All Starting With 'C': " + institutions);
+        System.out.println("Get All sorted by name: " + institutions);
     }
 
     @Test

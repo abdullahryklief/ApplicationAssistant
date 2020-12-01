@@ -24,10 +24,10 @@ public class FundingServiceImplTest {
     }
 
     @Test
-    public void e_getAllStartingWith(){
-        Set<Funding> funding_s = service.getAllStartingWith("m");
+    public void e_searchByName(){
+        Set<Funding> funding_s = service.searchByName("Metropolitan");
         Assert.assertEquals(1, funding_s.size());
-        System.out.println("Gets everything that starts with 'M':" + funding_s);
+        System.out.println("Gets all funding types by name: " + funding_s);
     }
 
     @Test
